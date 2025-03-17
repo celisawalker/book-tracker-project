@@ -39,7 +39,7 @@ router.post("/", async (req, res) => {
         }else{
             req.body.dnf = false
         }
-        
+
         const currentUser = await User.findById(req.session.user._id);
         currentUser.books.push(req.body); 
         await currentUser.save(); 
@@ -48,6 +48,23 @@ router.post("/", async (req, res) => {
         console.log(error);
         res.redirect("/");
     }
-})
+});
+
+router.get("/:booksId", async (req, res) => {
+    //look up the user that's currently logged in
+    try {
+        const currentUser = await User.findById(req.session.user._id);
+        //find the subdoc that's in the currently logged in user's applications list
+        const book = currentUser.applications.id(req.params.booksId);
+        //render a document with the subdocument's details
+        res.render("books/show.ejs", {
+            book: book,
+            //property shorthand syntax - whenever the prop name and variable name are the same
+        });
+    } catch (error) {
+        console.log(error);
+        res.redirect("/")
+    }
+});
 
 module.exports = router;
