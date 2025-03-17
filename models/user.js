@@ -5,6 +5,11 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+
+  author: {
+    type: String
+  },
+
   genre: {
     type: String,
     required: true,
@@ -39,7 +44,7 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  
+
   review: {
     type: String,
   }

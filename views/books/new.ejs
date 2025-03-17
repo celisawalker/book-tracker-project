@@ -7,10 +7,18 @@
 </head>
 <body>
     <%- include("../partials/_navbar.ejs") %>
-    <h1>Add New Book</h1>
+    <div class="new-book-blurb">
+        <h1>Add New Book</h1>
+        <p>Log your latest read leave a rating and review if you'd like! If you didn't finish it (DNF), don't worry, we've all been there. 
+            Check the DNF box and consider letting your fellow readers know why. It might just help others decide whether or not they want to read that book.
+        </p>
+    </div>
     <form action="/users/<%= user._id %>/books" method="post">
         <label for="title">Title:</label>
         <input type="text" name="title" id="title">
+
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author">
 
         <label for="genre">Genre:</label>
         <select name="genre" id="genre">
