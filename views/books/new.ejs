@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Book</title>
+</head>
+<body>
+    <%- include("../partials/_navbar.ejs") %>
+    <h1>Add New Book</h1>
+    <form action="/users/<%= user._id %>/books" method="post">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title">
+
+        <label for="postingLink">Posting Link: </label>
+        <input type="text" name="postingLink" id="postingLink">
+
+        <label for="genre">Genre:</label>
+        <select name="genre" id="genre">
+            <option disabled selected value> -- Select a Genre -- </option>
+            <option value="fiction">Fiction</option>
+            <option value="non-fiction">Non-Fiction</option>
+            <option value="romance">Romance</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="science-fiction">Science Fiction</option>
+            <option value="mystery">Mystery</option>
+            <option value="coming-of-age">Coming-Of-Age</option>
+            <option value="young-adult">Young Adult</option>
+            <option value="new-adult">New Adult</option>
+            <option value="self-help">Self-Help</option>
+            <option value="poetry">Poetry</option>
+            <option value="history">History</option>
+        </select>
+
+        <p>Status:</p>
+
+        <label for="currentlyReading">Currently Reading</label><br>
+        <input type="radio" id="currentlyReading" name="currentlyReading" value="currentlyReading">
+
+        <label for="isFinished">Read</label>
+        <input type="radio" id="read" name="read" value="read">
+
+        <label for="DNF">DNF</label><br>  
+        <input type="radio" id="dnf" name="dnf" value="dnf">
+
+        <label for="review">Review:</label>
+        <textarea name="review" id="review"></textarea>
+
+        <button type="submit">Add Book</button>
+    </form>
+</body>
+</html>
