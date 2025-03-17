@@ -37,14 +37,13 @@
             <option value="history">History</option>
         </select>
 
-        <label for="currentlyReading">Currently Reading</label>
-        <input type="checkbox" id="currentlyReading" name="currentlyReading">
-
-        <label for="isFinished">Finished Reading</label>
-        <input type="checkbox" id="read" name="read">
-
-        <label for="DNF">DNF</label>
-        <input type="checkbox" id="dnf" name="dnf"><br>
+        <label for="status">Read Status:</label>
+        <select name="status">
+            <option disabled selected value> -- Select a Genre -- </option>
+            <option value="currentlyReading">Currently Reading</option>
+            <option value="finishedReading">Finished Reading</option>
+            <option value="dnf">Did Not Finish</option>
+        </select>
 
         <label for="rating">Rating</label>
         <select name="rating" id="rating">
