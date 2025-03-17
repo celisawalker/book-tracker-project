@@ -7,16 +7,23 @@
 </head>
 <body>
   <% if (user) { %>
-    <h1>Welcome to the app, <%= user.username %>!</h1>
+    <h1>Welcome back, <%= user.username %>!</h1>
     <p>
       <a href="/auth/sign-out">Sign out</a>
     </p>
   <% } else { %>
-    <h1>Welcome to the app, guest.</h1>
-    <p>
-      <a href="/auth/sign-up">Sign up</a> or
-      <a href="/auth/sign-in">Sign in</a>.
-    </p>
+    <h1>Welcome to Book Buddies!</h1>
+    <div class="intro-blurb">
+      <p>Is reading more books one of your New Years' resolutions? Stay on track with Book Buddies to log your current reads as well as keep track of the books you've read in the past.
+        Be sure to also rate and review the books you've read so that other readers can get inspriation for their next reads. We can't wait to see what you read this year!
+      </p>
+    </div>
+    <div class="login-container">
+      <p>
+        <a href="/auth/sign-up">Sign up</a> or
+        <a href="/auth/sign-in">Sign in</a>.
+      </p>
+  </div>
   <% } %>
   <p><a href="/vip-lounge">Get into the VIP Users Only lounge!</a></p>
 </body>
