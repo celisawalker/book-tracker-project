@@ -28,21 +28,13 @@ const bookSchema = new mongoose.Schema({
       "history"
     ]
   },
-  currentlyReading: {
-    type: Boolean
-  },
 
-  isFinished: {
-    type: Boolean
-  },
-
-  dnf: {
-    type: Boolean
+  status: {
+    type: String
   },
 
   rating: {
     type: String,
-    required: true
   },
 
   review: {
@@ -51,6 +43,7 @@ const bookSchema = new mongoose.Schema({
 })
 
 const userSchema = mongoose.Schema({
+
   username: {
     type: String,
     required: true,
