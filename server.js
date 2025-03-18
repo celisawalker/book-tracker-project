@@ -9,6 +9,7 @@ const session = require('express-session');
 const booksController = require('./controllers/books.js');
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
+const path = require("path");
 
 
 const authController = require('./controllers/auth.js');
@@ -23,6 +24,7 @@ mongoose.connection.on('connected', () => {
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+app.use(express.static(path.join(__dirname, 'public')));
 // app.use(morgan('dev'));
 app.use(
   session({
