@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Book</title>
+</head>
+<body>
+    <%- include("../partials/_navbar.ejs") %>
+    <h1><%= book.title %></h1>
+    <form action="/users/<%= user._id %>/books/<%= book._id %>?_method=PUT"
+        method="POST">
+        <label for="title">Title:</label>
+        <input value="<%= book.title %>" type="text" name="title" id="title">
+
+        <label for="author">Author:</label>
+        <input value="<%= book.author %>" type="text" name="author" id="author">
+
+        <label for="genre">Genre:</label>
+        <select name="genre" id="genre">
+            <option disabled selected value> -- Select a Genre -- </option>
+            <option value="fiction" <%= book.genre === "fiction" ? "selected" : "" %> >Fiction</option>
+            <option value="non-fiction" <%= book.genre === "non-fiction" ? "selected" : "" %> >Non-Fiction</option>
+            <option value="romance" <%= book.genre === "romance" ? "selected" : "" %> >Romance</option>
+            <option value="fantasy" <%= book.genre === "fantasy" ? "selected" : "" %> >Fantasy</option>
+            <option value="science-fiction" <%= book.genre === "science-fiction" ? "selected" : "" %> >Science-Fiction</option>
+            <option value="mystery" <%= book.genre === "mystery" ? "selected" : "" %> >Mystery</option>
+            <option value="coming-of-age" <%= book.genre === "coming-of-age" ? "selected" : "" %> >Coming-Of-Age</option>
+            <option value="young-adult" <%= book.genre === "young-adult" ? "selected" : "" %> >Young Adult</option>
+            <option value="new-adult" <%= book.genre === "new-adult" ? "selected" : "" %> >New Adult</option>
+            <option value="self-help" <%= book.genre === "self-help" ? "selected" : "" %> >Self-Help</option>
+            <option value="poetry" <%= book.genre === "poetry" ? "selected" : "" %> >Poetry</option>
+            <option value="history" <%= book.genre === "history" ? "selected" : "" %> >History</option>
+        </select>
+
+        <label for="status">Read Status:</label>
+        <select name="status">
+            <option disabled selected value> -- Select Read Status -- </option>
+            <option value="currentlyReading" <%= book.genre === "currentlyReading" ? "selected" : "" %> >Currently Reading</option>
+            <option value="finishedReading" <%= book.genre === "finishedReading" ? "selected" : "" %> >Finished Reading</option>
+            <option value="dnf" <%= book.genre === "dnf" ? "selected" : "" %> >Did Not Finish</option>
+        </select>
+
+        <label for="rating">Rating</label>
+        <select name="rating" id="rating">
+            <option disabled selected value> -- Select a Star Rating -- </option>
+            <option value="one-star" <%= book.rating === "one-star" ? "selected" : "" %> >⭐</option>
+            <option value="two-stars" <%= book.rating === "two-stars" ? "selected" : "" %> >⭐⭐</option>
+            <option value="three-stars" <%= book.rating === "three-stars" ? "selected" : "" %> >⭐⭐⭐</option>
+            <option value="four-stars" <%= book.rating === "four-stars" ? "selected" : "" %> >⭐⭐⭐⭐</option>
+            <option value="five-stars" <%= book.rating === "five-stars" ? "selected" : "" %> >⭐⭐⭐⭐⭐</option>
+        </select>
+
+        <label for="review">Review:</label>
+        <textarea name="review" id="review">
+            <%= book.review %>
+        </textarea><br>
+
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>
