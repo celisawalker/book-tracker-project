@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= book.title %></title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1><%= book.title %> </h1>
+    <p>by <%= book.author %></p>
+    <p>Rating:</p>
+    <% if(book.rating === "one-star") { %>
+        <p>⭐</p>
+    <% }else if(book.rating === "two-stars"){ %>
+        <p>⭐⭐</p>
+    <% } else if(book.rating === "three-stars") { %>
+        <p>⭐⭐⭐</p>
+    <% }else if(book.rating === "four-stars") { %>
+        <p>⭐⭐⭐⭐</p>
+    <% } else if(book.rating === "five-stars") { %>
+        <p>⭐⭐⭐⭐⭐</p>
+    <% } %>
+
+    <p>Genre: <%= book.genre %></p>
+    <% if(book.currentlyReading) { %>
+        <p><%= user.username %> is currently reading this book</p>
+    <% } else if(book.finishedReading) { %>
+        <p><%= user.username %> read this book</p>
+    <% } else if(book.dnf) { %>
+        <p><%= user.username %> did not finish this book</p>
+        <% } %>
+ 
+
+    <% if (book.review) { %>
+    <p>Review: <%= book.review %></p>
+    <% } %>
+</body>
+</html>
