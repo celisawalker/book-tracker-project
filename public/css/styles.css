@@ -137,3 +137,10 @@ ul{
     flex-direction: column;
     
 }
+
+@media(max-width: 600px){
+    .blurb-container{
+        display: flex;
+        flex-direction: column;
+    }
+}

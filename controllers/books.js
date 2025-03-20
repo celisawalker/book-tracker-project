@@ -8,19 +8,7 @@ router.get("/", async (req, res) => {
         const currentUser = await User.findById(req.session.user._id)
 
         res.render("books/index.ejs", {books: currentUser.books});
-        //we are now going to pass the current user's pantry items to the index page
-    } catch (error){
-        console.log(error);
-        res.redirect("/");
-    }
-})
-
-router.get("/tbr", async (req, res) => {
-    try{
-        const currentUser = await User.findById(req.session.user._id)
-
-        res.render("books/tbr.ejs", {books: currentUser.books});
-        //we are now going to pass the current user's pantry items to the index page
+        //this passes all books without a status of wantToRead to the your books index page
     } catch (error){
         console.log(error);
         res.redirect("/");
@@ -39,7 +27,7 @@ router.get("/book-list", async (req, res) => {
     res.render("books/booklist.ejs", {list: bookList});
 })
 
-
+//
 router.post("/", async (req, res) => {
       try {
         const currentUser = await User.findById(req.session.user._id);
@@ -83,6 +71,7 @@ router.get("/:bookId", async (req, res) => {
     }
 });
 
+//adds books to db and adds them to either books or tbr page
 router.post("/", async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id);
@@ -112,7 +101,7 @@ router.get("/:bookId/edit", async (req, res) => {
 router.put("/:bookId", async (req, res) => {
     try {
         const book = await List.findById(req.params.bookId);
-        book.overwrite(req.body);
+        book.set(req.body);
         book.assignee.push(req.session.user._id);
         await book.save();
         //console.log(book);
