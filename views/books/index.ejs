@@ -15,11 +15,13 @@
     <a href="/users/<%=user._id%>/books/new">Add New Book</a>
     <ul>
         <% books.forEach(book => { %>
+            <% if(book.status !== "wantToRead"){ %>
             <li>
               <a href="/users/<%=user._id%>/books/<%=book._id%>">
                 <%= book.title %> <span class="author-styling">by <%= book.author %> </span>
               </a>
             </li>
+            <% } %>
         <% }); %>
     </ul>
 </body>

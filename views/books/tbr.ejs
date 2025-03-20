@@ -10,6 +10,19 @@
     <title>Your TBR</title>
 </head>
 <body>
-    
+    <%- include("../partials/_navbar.ejs") %>
+    <h1>Your TBR</h1>
+    <a href="/users/<%=user._id%>/books/new">Add a book to your TBR here!!</a>
+    <ul>
+        <% books.forEach(book => { %>
+            <% if(book.status === "wantToRead"){ %>
+            <li>
+              <a href="/users/<%=user._id%>/books/<%=book._id%>">
+                <%= book.title %> <span class="author-styling">by <%= book.author %> </span>
+              </a>
+            </li>
+            <% } %>
+        <% }); %>
+    </ul>
 </body>
 </html>
