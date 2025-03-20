@@ -16,9 +16,11 @@ const bookSchema = new mongoose.Schema({
     enum: [
       "fiction",
       "non-fiction",
+      "biography",
       "romance",
       "fantasy",
       "science-fiction",
+      "memoir",
       "mystery",
       "coming-of-age",
       "young-adult",

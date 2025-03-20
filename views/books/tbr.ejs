@@ -7,20 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Capriola&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Kiwi+Maru&display=swap" rel="stylesheet">
-    <title>What You've Been Reading</title>
+    <title>Your TBR</title>
 </head>
 <body>
-    <%- include("../partials/_navbar.ejs") %>
-    <h1>What You've Been Reading</h1>
-    <a href="/users/<%=user._id%>/books/new">Add New Book</a>
-    <ul>
-        <% books.forEach(book => { %>
-            <li>
-              <a href="/users/<%=user._id%>/books/<%=book._id%>">
-                <%= book.title %> <span class="author-styling">by <%= book.author %> </span>
-              </a>
-            </li>
-        <% }); %>
-    </ul>
+    
 </body>
 </html>

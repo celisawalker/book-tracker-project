@@ -6,10 +6,11 @@
 </head>
 <nav>
   <div class="app-name">
-    <a href="/">*PLACEHOLDER NAME*</a>
+    <a href="/">Fin.</a>
   </div>
     <% if(user) { %>
     <a href="/users/<%= user._id %>/books">Your Books</a>
+    <a href="/users/<%= user._id %>/books/book-list">Check Out These Books</a>
     <a href="/auth/sign-out">Sign Out</a>
     <% } else { %>
       <div class="login-container"></div>

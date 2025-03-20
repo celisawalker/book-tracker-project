@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const List = require('../models/bookList');
 
 router.get("/", async (req, res) => {
     try{
@@ -15,8 +16,14 @@ router.get("/", async (req, res) => {
 })
 
 router.get("/new", async (req, res) => {
-    // res.render("books/new.ejs")
     res.render("books/new.ejs");
+})
+
+
+router.get("/book-list", async (req, res) => {
+    const bookList = await List.find();
+    console.log(bookList);
+    res.render("books/booklist.ejs", {list: bookList});
 })
 
 router.post("/", async (req, res) => {
@@ -30,6 +37,19 @@ router.post("/", async (req, res) => {
         res.redirect("/");
     }
 });
+
+//populate to tbr
+// router.post("/tbr", async (req, res) => {
+//     try {
+//         const currentUser = await User.findById(req.session.user._id);
+//         currentUser.books.push(req.body); //this changes the application's list in memory only
+//         await currentUser.save(); //this makes the changes permanent in the database
+//         res.redirect(`/users/${currentUser._id}/books/`);
+//     } catch (error) {
+//         console.log(error);
+//         res.redirect("/");
+//     }
+// })
 
 router.get("/:booksId", async (req, res) => {
     //look up the user that's currently logged in

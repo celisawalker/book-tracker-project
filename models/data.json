@@ -91,7 +91,3 @@
     { "title": "In the Dream House", "author": "Carmen Maria Machado" },
     { "title": "Project Hail Mary", "author": "Andy Weir" }
   ]
-
-//   the buttons that a user clicks, use an html form, could use an a tag; association can be either a put or post request but will likely be put 
-//since it's already existing information. when form gets submitted, it will include id of the book; can get user id from req.session.user (how you get the user ID)
-//on list page, user clicks button that's a submit from html form; uses method put request; info should include books id; write route handler that takes id, finds book in db and updates

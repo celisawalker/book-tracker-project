@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Capriola&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Kiwi+Maru&display=swap" rel="stylesheet">
@@ -28,9 +29,11 @@
             <option disabled selected value> -- Select a Genre -- </option>
             <option value="fiction">Fiction</option>
             <option value="non-fiction">Non-Fiction</option>
+            <option value="biography">Biography</option>
             <option value="romance">Romance</option>
             <option value="fantasy">Fantasy</option>
             <option value="science-fiction">Science Fiction</option>
+            <option value="memoir">Memoir</option>
             <option value="mystery">Mystery</option>
             <option value="coming-of-age">Coming-Of-Age</option>
             <option value="young-adult">Young Adult</option>
@@ -61,7 +64,7 @@
         <label for="review">Review:</label>
         <textarea name="review" id="review"></textarea><br>
 
-        <button type="submit">Add Book</button>
+        <button class="add-book submit-btn type="submit">Add Book</button>
     </form>
 </body>
 </html>

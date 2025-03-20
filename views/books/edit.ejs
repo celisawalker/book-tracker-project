@@ -11,7 +11,7 @@
 </head>
 <body>
     <%- include("../partials/_navbar.ejs") %>
-    <h1><%= book.title %></h1>
+    <h1 class="book-title"><%= book.title %></h1>
     <form action="/users/<%= user._id %>/books/<%= book._id %>?_method=PUT"
         method="POST">
         <label for="title">Title:</label>
@@ -25,9 +25,11 @@
             <option disabled selected value> -- Select a Genre -- </option>
             <option value="fiction" <%= book.genre === "fiction" ? "selected" : "" %> >Fiction</option>
             <option value="non-fiction" <%= book.genre === "non-fiction" ? "selected" : "" %> >Non-Fiction</option>
+            <option value="biography" <%= book.genre === "biography" ? "selected" : "" %> >Biography</option>
             <option value="romance" <%= book.genre === "romance" ? "selected" : "" %> >Romance</option>
             <option value="fantasy" <%= book.genre === "fantasy" ? "selected" : "" %> >Fantasy</option>
             <option value="science-fiction" <%= book.genre === "science-fiction" ? "selected" : "" %> >Science-Fiction</option>
+            <option value="memoir" <%= book.genre === "memoir" ? "selected" : "" %> >Memoir</option>
             <option value="mystery" <%= book.genre === "mystery" ? "selected" : "" %> >Mystery</option>
             <option value="coming-of-age" <%= book.genre === "coming-of-age" ? "selected" : "" %> >Coming-Of-Age</option>
             <option value="young-adult" <%= book.genre === "young-adult" ? "selected" : "" %> >Young Adult</option>
@@ -60,7 +62,7 @@
             <%= book.review %>
         </textarea><br>
 
-        <button type="submit">Save Changes</button>
+        <button class="submit-btn" type="submit">Save Changes</button>
     </form>
 </body>
 </html>

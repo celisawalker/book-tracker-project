@@ -11,44 +11,46 @@
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-    <h1><%= book.title %> </h1>
-    <p>by <%= book.author %></p>
+    <div class="show-details">
+        <h1><%= book.title %> </h1>
+        <p>by <%= book.author %></p>
 
-    <% if(book.status === "currentlyReading") { %>
-        <p><%= user.username %> is currently reading this book</p>
-    <% } else if(book.status === "finishedReading") { %>
-        <p><%= user.username %> read this book</p>
-    <% } else if(book.status === "dnf") { %>
-        <p><%= user.username %> did not finish this book</p>
-    <% } %>
+        <% if(book.status === "currentlyReading") { %>
+            <p><%= user.username %> is currently reading this book</p>
+        <% } else if(book.status === "finishedReading") { %>
+            <p><%= user.username %> read this book</p>
+        <% } else if(book.status === "dnf") { %>
+            <p><%= user.username %> did not finish this book</p>
+        <% } %>
 
-    <p>Rating:</p>
-    <% if(book.rating === "one-star") { %>
-        <p>⭐</p>
-    <% }else if(book.rating === "two-stars"){ %>
-        <p>⭐⭐</p>
-    <% } else if(book.rating === "three-stars") { %>
-        <p>⭐⭐⭐</p>
-    <% }else if(book.rating === "four-stars") { %>
-        <p>⭐⭐⭐⭐</p>
-    <% } else if(book.rating === "five-stars") { %>
-        <p>⭐⭐⭐⭐⭐</p>
-    <% } %>
+        <p>Rating:</p>
+        <% if(book.rating === "one-star") { %>
+            <p>⭐</p>
+        <% }else if(book.rating === "two-stars"){ %>
+            <p>⭐⭐</p>
+        <% } else if(book.rating === "three-stars") { %>
+            <p>⭐⭐⭐</p>
+        <% }else if(book.rating === "four-stars") { %>
+            <p>⭐⭐⭐⭐</p>
+        <% } else if(book.rating === "five-stars") { %>
+            <p>⭐⭐⭐⭐⭐</p>
+        <% } %>
 
-    <p>Genre: <%= book.genre %></p>
- 
+        <p>Genre: <%= book.genre %></p>
+    
 
-    <% if (book.review) { %>
-    <p>Review: <%= book.review %></p>
-    <% } %>
+        <% if (book.review) { %>
+        <p>Review: <%= book.review %></p>
+        <% } %>
 
-    <a href="/users/<%=user._id%>/books/<%=book._id%>/edit">
-        Edit
-    </a>
+        <a href="/users/<%=user._id%>/books/<%=book._id%>/edit">
+            Edit
+        </a>
+        </div>
     <form
       action="/users/<%= user._id %>/books/<%= book._id %>?_method=DELETE"
       method="POST"
     >
-      <button type="submit">Delete</button>
+      <button class="submit-btn" type="submit">Delete</button>
 </body>
 </html>

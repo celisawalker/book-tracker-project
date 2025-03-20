@@ -7,7 +7,6 @@ const methodOverride = require('method-override');
 const morgan = require('morgan');
 const session = require('express-session');
 const booksController = require('./controllers/books.js');
-// const booksListController = require('./controllers/booksList.js');
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
 const path = require("path");
@@ -16,7 +15,7 @@ const data = require("./models/data.json");
 
 
 const authController = require('./controllers/auth.js');
-
+const listsController = require("./controllers/lists.js");
 const port = process.env.PORT ? process.env.PORT : '3000';
 
 mongoose.connect(process.env.MONGODB_URI);
@@ -31,7 +30,7 @@ mongoose.connection.on('connected', () => {
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 // app.use(morgan('dev'));
 app.use(
   session({
@@ -60,7 +59,7 @@ app.get('/vip-lounge', (req, res) => {
 app.use('/auth', authController);
 app.use(isSignedIn);
 app.use('/users/:userId/books', booksController);
-// app.use('/users/:userId/books', booksListController);
+app.use("/lists", listsController);
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

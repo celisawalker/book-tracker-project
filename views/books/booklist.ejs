@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Capriola&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Kiwi+Maru&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<%- include("../partials/_navbar.ejs") %>
+<body>
+    <div class="booklist-container">
+        <h1>NYT Readers Choice - Top 100 Books of the 21st Century</h1>
+        <p>Not sure what to read next? take a look at which books New York Times Readers voted the top 100 books of the century. 
+            If you see something you're interested in, be sure to add it to your TBR! 
+        </p>
+        <ul>
+            <% list.forEach(item => { %>
+                <li>
+                        <%= item.title %> <span class="author-styling">by <%= item.author %> </span><a href="users/<%= user._id %>/books/tbr">Add</a>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+</body>
+</html>
