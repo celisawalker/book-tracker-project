@@ -12,10 +12,7 @@
 <body>
   <%- include("./partials/_navbar.ejs") %>
   <% if (user) { %>
-    <h1>Welcome back, <%= user.username %>!</h1>
-    <p>
-      <a href="/auth/sign-out">Sign out</a>
-    </p>
+    <h1 class="app-header">Welcome back, <%= user.username %>!</h1>
   <% } else { %>
     <h1 class="app-header">Welcome, Dear Reader</h1>
     <div class="blurb-container">

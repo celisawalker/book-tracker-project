@@ -3,12 +3,27 @@
     box-sizing: border-box;
 }
 
+body p{
+font-size: 18px;
+line-height: 1.5rem;
+}
+
+body a{
+    text-decoration: none;
+    color: black;
+}
+
+body a:hover{
+    text-decoration: underline;
+}
+
 header{
     top: 0;
     width: 100%;
     height: 80px;
     position: sticky;
     background-color: rgb(153, 193, 153);
+    margin-bottom: 50px;
 }
 
 nav{
@@ -16,11 +31,12 @@ nav{
     position: fixed;
     right: -100%;
     width: 300px;
-    height: 100%;
+    height: 60%;
     overflow: hidden;
     padding-top: 48px;
     transition: right .5s;
-    background-color: rgb(112, 109, 109);
+    background-color: rgb(203, 179, 126);
+    /* opacity: .8; */
 }
 
 nav a{
@@ -35,6 +51,7 @@ nav a{
     z-index: 1;
     top: 10px;
     right: 10px;
+    padding-top: 10px;
     position: absolute;
     cursor: pointer;
 }
@@ -59,10 +76,10 @@ body{
     background-color: beige;
 }
 
-a{
+/* a{
     text-decoration: none;
     color: black;
-}
+} */
 
 
 a:hover{
@@ -73,8 +90,24 @@ a:hover{
     text-align: center;
     margin-bottom: 50px;
 }
+
 .app-name{
+    display: flex;
+    width: 20%;
+    padding-top: 20px;
+    align-items: center;
+    justify-content: center;
     font-size: 36px;
+    color: whitesmoke;
+}
+
+.app-name a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.app-name a:hover{
+    text-decoration: underline;
     color: whitesmoke;
 }
 
@@ -107,7 +140,7 @@ textarea{
 .intro-blurb, .tbr-blurb{
     width: 30%;
     height: 275px;
-    background-color: rgb(246, 216, 177);
+    background-color: rgb(203, 179, 126);
     border-radius: 10px;
     padding: 15px;
     margin-left: 20px;
@@ -115,6 +148,21 @@ textarea{
 
 ul{
     list-style: none;
+}
+
+.book-list{
+    font-size: 18px;
+}
+.booklist-blurb{
+    margin-bottom: 20px;
+}
+
+.book-list a{
+    font-size: 15px;
+}
+
+.space{
+    height: 10px;
 }
 
 .show-details{

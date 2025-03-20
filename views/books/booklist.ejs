@@ -12,17 +12,20 @@
 <%- include("../partials/_navbar.ejs") %>
 <body>
     <div class="booklist-container">
-        <h1>NYT Readers Choice - Top 100 Books of the 21st Century</h1>
+        <div class="booklist-blurb">
+            <h1>NYT Readers Choice - Top 100 Books of the 21st Century</h1>
         <p>Not sure what to read next? Take a look at which books New York Times Readers voted the top 100 books of the century. 
             If you see something you're interested in, be sure to add it to your TBR! 
         </p>
-        <ul>
+        </div>
+        <ol>
             <% list.forEach(item => { %>
-                <li>
-                        <%= item.title %> <span class="author-styling">by <%= item.author %> </span><a href="/users/<%=user._id%>/books/<%=item._id%>/add">Add to list</a>
+                <li class="book-list">
+                        <%= item.title %> <span class="author-styling"> <br> by <%= item.author %> </span><a href="/users/<%=user._id%>/books/<%=item._id%>/add"><br>Add to list</a>
                 </li>
+                <div class="space"></div>
             <% }); %>
-        </ul>
+        </ol>
     </div>
 </body>
 </html>

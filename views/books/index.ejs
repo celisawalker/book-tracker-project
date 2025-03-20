@@ -11,18 +11,23 @@
 </head>
 <body>
     <%- include("../partials/_navbar.ejs") %>
-    <h1>What You've Been Reading</h1>
-    <a href="/users/<%=user._id%>/books/new">Add New Book</a>
-    <ul>
-        <% books.forEach(book => { %>
-            <% if(book.status !== "wantToRead"){ %>
-            <li>
-              <a href="/users/<%=user._id%>/books/<%=book._id%>">
-                <%= book.title %> <span class="author-styling">by <%= book.author %> </span>
-              </a>
-            </li>
-            <% } %>
-        <% }); %>
-    </ul>
+    <div class="booklist-container">
+      <div class="booklist-blurb">
+        <h1>What You've Been Reading</h1>
+        <a href="/users/<%=user._id%>/books/new">Add New Book</a>
+      </div>
+        <ol>
+            <% books.forEach(book => { %>
+                <% if(book.status !== "wantToRead"){ %>
+                <li>
+                  <a href="/users/<%=user._id%>/books/<%=book._id%>">
+                    <%= book.title %> <span class="author-styling"><br>by <%= book.author %> </span>
+                  </a>
+                </li>
+                <div class="space"></div>
+                <% } %>
+            <% }); %>
+        </ol>
+    </div>
 </body>
 </html>
