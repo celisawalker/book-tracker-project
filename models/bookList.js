@@ -9,6 +9,39 @@ const listSchema = new mongoose.Schema({
     type: String
   },
 
+  genre: {
+    type: String,
+    required: true,
+    enum: [
+      "fiction",
+      "non-fiction",
+      "biography",
+      "romance",
+      "fantasy",
+      "science-fiction",
+      "memoir",
+      "mystery",
+      "coming-of-age",
+      "young-adult",
+      "new-adult",
+      "self-help",
+      "poetry",
+      "history"
+    ]
+  },
+
+  status: {
+    type: String
+  },
+
+  rating: {
+    type: String,
+  },
+
+  review: {
+    type: String,
+  },
+
   assignee: [{ 
     type: mongoose.Schema.Types.ObjectId, 
     ref: 'User' // Reference to the User model

@@ -23,29 +23,29 @@
         <label for="genre">Genre:</label>
         <select name="genre" id="genre">
             <option disabled selected value> -- Select a Genre -- </option>
-            <option value="fiction" <%= book.genre === "fiction" ? "selected" : "" %> >Fiction</option>
-            <option value="non-fiction" <%= book.genre === "non-fiction" ? "selected" : "" %> >Non-Fiction</option>
-            <option value="biography" <%= book.genre === "biography" ? "selected" : "" %> >Biography</option>
-            <option value="romance" <%= book.genre === "romance" ? "selected" : "" %> >Romance</option>
-            <option value="fantasy" <%= book.genre === "fantasy" ? "selected" : "" %> >Fantasy</option>
-            <option value="science-fiction" <%= book.genre === "science-fiction" ? "selected" : "" %> >Science-Fiction</option>
-            <option value="memoir" <%= book.genre === "memoir" ? "selected" : "" %> >Memoir</option>
-            <option value="mystery" <%= book.genre === "mystery" ? "selected" : "" %> >Mystery</option>
-            <option value="coming-of-age" <%= book.genre === "coming-of-age" ? "selected" : "" %> >Coming-Of-Age</option>
-            <option value="young-adult" <%= book.genre === "young-adult" ? "selected" : "" %> >Young Adult</option>
-            <option value="new-adult" <%= book.genre === "new-adult" ? "selected" : "" %> >New Adult</option>
-            <option value="self-help" <%= book.genre === "self-help" ? "selected" : "" %> >Self-Help</option>
-            <option value="poetry" <%= book.genre === "poetry" ? "selected" : "" %> >Poetry</option>
-            <option value="history" <%= book.genre === "history" ? "selected" : "" %> >History</option>
+            <option value="fiction">Fiction</option>
+            <option value="non-fiction">Non-Fiction</option>
+            <option value="biography">Biography</option>
+            <option value="romance">Romance</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="science-fiction">Science Fiction</option>
+            <option value="memoir">Memoir</option>
+            <option value="mystery">Mystery</option>
+            <option value="coming-of-age">Coming-Of-Age</option>
+            <option value="young-adult">Young Adult</option>
+            <option value="new-adult">New Adult</option>
+            <option value="self-help">Self-Help</option>
+            <option value="poetry">Poetry</option>
+            <option value="history">History</option>
         </select>
 
         <label for="status">Read Status:</label>
         <select name="status">
             <option disabled selected value> -- Select Read Status -- </option>
-            <option value="wantToRead" <%= book.status === "wantToRead" ? "selected" : "" %> >Want To Read</option>
-            <option value="currentlyReading" <%= book.status === "currentlyReading" ? "selected" : "" %> >Currently Reading</option>
-            <option value="finishedReading" <%= book.status === "finishedReading" ? "selected" : "" %> >Finished Reading</option>
-            <option value="dnf" <%= book.status === "dnf" ? "selected" : "" %> >Did Not Finish</option>
+            <option value="wantToRead">Want To Read</option>
+            <option value="currentlyReading">Currently Reading</option>
+            <option value="finishedReading">Finished Reading</option>
+            <option value="dnf">Did Not Finish</option>
         </select>
 
         <label for="rating">Rating</label>
@@ -59,9 +59,7 @@
         </select>
 
         <label for="review">Review:</label>
-        <textarea name="review" id="review">
-            <%= book.review %>
-        </textarea><br>
+        <textarea name="review" id="review"></textarea><br>
 
         <button class="submit-btn" type="submit">Save Changes</button>
     </form>

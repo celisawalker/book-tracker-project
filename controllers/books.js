@@ -39,6 +39,7 @@ router.get("/book-list", async (req, res) => {
     res.render("books/booklist.ejs", {list: bookList});
 })
 
+
 router.post("/", async (req, res) => {
       try {
         const currentUser = await User.findById(req.session.user._id);
@@ -51,31 +52,26 @@ router.post("/", async (req, res) => {
     }
 });
 
+//TODO: ADD ROUTE FOR ADD TO LIST ACTION - SHOULD POPULATE THE TITLE AND AUTHOR FIELDS
+router.get("/:bookId/add", async (req, res) => {
+    try {
+      const book = await List.findById(req.params.bookId);
+      res.render("books/edit.ejs", {book});
+  } catch (error) {
+      console.log(error);
+      res.redirect("/");
+  }
+});
+
 router.get("/tbr", async (req, res) => {
-    res.render("books/tbr.ejs");
+    const books = await List.find({"assignee": req.session.user._id});
+    res.render("books/tbr.ejs", {books});
 })
 
-//populate to tbr
-// router.post("/tbr", async (req, res) => {
-//     try {
-//         const bookList = await List.find();
-//         // const booksToAdd = await List.find({}).populate("assignee.title");
-//         // const currentUser = await User.findById(req.session.user._id);
-//         // currentUser.booksToAdd.push(req.body); //this changes the application's list in memory only
-//         // await currentUser.save(); //this makes the changes permanent in the database
-//         res.redirect(`/users/${currentUser._id}/tbr`);
-//     } catch (error) {
-//         console.log(error);
-//         res.redirect("/");
-//     }
-// })
-
-router.get("/:booksId", async (req, res) => {
+router.get("/:bookId", async (req, res) => {
     //look up the user that's currently logged in
     try {
-        const currentUser = await User.findById(req.session.user._id);
-        //find the subdoc that's in the currently logged in user's applications list
-        const book = currentUser.books.id(req.params.booksId);
+        const book = await List.findById(req.params.bookId);
         //render a document with the subdocument's details
         res.render("books/show.ejs", {
             book: book,
@@ -115,11 +111,12 @@ router.get("/:bookId/edit", async (req, res) => {
 
 router.put("/:bookId", async (req, res) => {
     try {
-        const currentUser = await User.findById(req.session.user._id);
-        const book = currentUser.books.id(req.params.bookId);
-        book.set(req.body);
-        await currentUser.save();
-        res.redirect(`/users/${currentUser._id}/books/${req.params.bookId}`);
+        const book = await List.findById(req.params.bookId);
+        book.overwrite(req.body);
+        book.assignee.push(req.session.user._id);
+        await book.save();
+        //console.log(book);
+        res.redirect(`/users/${req.session.user._id}/books/${req.params.bookId}`);
     } catch (error) {
         console.log(error);
         res.redirect("/")
