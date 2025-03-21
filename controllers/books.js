@@ -8,7 +8,6 @@ router.get("/", async (req, res) => {
         const currentUser = await User.findById(req.session.user._id)
 
         res.render("books/index.ejs", {books: currentUser.books});
-        //we are now going to pass the current user's pantry items to the index page
     } catch (error){
         console.log(error);
         res.redirect("/");
@@ -20,7 +19,6 @@ router.get("/tbr", async (req, res) => {
         const currentUser = await User.findById(req.session.user._id)
 
         res.render("books/tbr.ejs", {books: currentUser.books});
-        //we are now going to pass the current user's pantry items to the index page
     } catch (error){
         console.log(error);
         res.redirect("/");
@@ -33,7 +31,6 @@ router.get("/new", async (req, res) => {
     res.render("books/new.ejs");
 })
 
-//lists book list on /book-list
 router.get("/book-list", async (req, res) => {
     const bookList = await List.find();
     res.render("books/booklist.ejs", {list: bookList});
@@ -55,23 +52,7 @@ router.get("/tbr", async (req, res) => {
     res.render("books/tbr.ejs");
 })
 
-//populate to tbr
-// router.post("/tbr", async (req, res) => {
-//     try {
-//         const bookList = await List.find();
-//         // const booksToAdd = await List.find({}).populate("assignee.title");
-//         // const currentUser = await User.findById(req.session.user._id);
-//         // currentUser.booksToAdd.push(req.body); //this changes the application's list in memory only
-//         // await currentUser.save(); //this makes the changes permanent in the database
-//         res.redirect(`/users/${currentUser._id}/tbr`);
-//     } catch (error) {
-//         console.log(error);
-//         res.redirect("/");
-//     }
-// })
-
 router.get("/:booksId", async (req, res) => {
-    //look up the user that's currently logged in
     try {
         const currentUser = await User.findById(req.session.user._id);
         const book = currentUser.books.id(req.params.booksId);
@@ -127,9 +108,8 @@ router.put("/:bookId", async (req, res) => {
 router.delete("/:bookId", async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id);
-        //^this makes a change in memory only
         currentUser.books.id(req.params.bookId).deleteOne();
-        await currentUser.save(); //this makes a change to the database
+        await currentUser.save(); 
 
         res.redirect(`/users/${currentUser._id}/books`)
     } catch (error) {
