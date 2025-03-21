@@ -18,6 +18,7 @@ Attributions include Capriola font hosted on Google Fonts. https://fonts.google.
 * Express.js
 * Javascript
 * CSS
+* MongoDB/Mongoose
 
 
 ## Future Plans 
