@@ -9,7 +9,7 @@ In addition to logging one's reads, users can also leave detailed reviews and ra
 
 ## Check it out [here][app]: 
 
-[app]: https://celisawalker.github.io/music-quiz-game-project/
+[app]: https://dear-reader-77419339e75e.herokuapp.com/
 
 ## Attributions
 Attributions include Capriola font hosted on Google Fonts. https://fonts.google.com/specimen/Instrument+Sans
