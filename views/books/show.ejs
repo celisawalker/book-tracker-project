@@ -7,20 +7,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Capriola&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Kiwi+Maru&display=swap" rel="stylesheet">
-    <title><%= book.title %></title>
+    <title>Your Books</title>
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
     <div class="show-details">
-        <h1><%= book.title %> </h1>
-        <p>by <%= book.author %></p>
+        <h1> <%= book.title %> </h1>
+        <p class="author-styling">by <%= book.author %></p>
 
         <% if(book.status === "currentlyReading") { %>
             <p><%= user.username %> is currently reading this book</p>
+            <div class="space"></div>
         <% } else if(book.status === "finishedReading") { %>
             <p><%= user.username %> read this book</p>
+            <div class="space"></div>
         <% } else if(book.status === "dnf") { %>
             <p><%= user.username %> did not finish this book</p>
+            <div class="space"></div>
         <% } %>
 
         <p>Rating:</p>
@@ -35,13 +38,16 @@
         <% } else if(book.rating === "five-stars") { %>
             <p>⭐⭐⭐⭐⭐</p>
         <% } %>
+        <div class="space"></div>
 
         <p>Genre: <%= book.genre %></p>
+        <div class="space"></div>
     
 
         <% if (book.review) { %>
         <p>Review: <%= book.review %></p>
         <% } %>
+        <div class="space"></div>
 
         <a href="/users/<%=user._id%>/books/<%=book._id%>/edit">
             Edit

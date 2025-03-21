@@ -10,12 +10,15 @@
   <title>Sign Up</title>
 </head>
 <body>
-  <h1>Create a new account!</h1>
-  <form action="/auth/sign-up" method="POST">
+  <%- include("../partials/_navbar.ejs") %>
+  <h1 class="app-header">Create a new account!</h1>
+  <form class="login-container" action="/auth/sign-up" method="POST">
     <label for="username">Username:</label>
     <input type="text" name="username" id="username" required />
+    <div class="space"></div>
     <label for="password">Password:</label>
     <input type="password" name="password" id="password" required />
+    <div class="space"></div>
     <label for="confirmPassword">Confirm Password:</label>
     <input 
       type="password"
@@ -23,7 +26,8 @@
       id="confirmPassword"
       required 
     />
-    <button type="submit">Sign up</button>
+    <div class="space"></div>
+    <button class="submit-btn" type="submit">Sign up</button>
   </form>
 </body>
 </html>

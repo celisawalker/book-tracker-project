@@ -21,7 +21,7 @@
         <ol>
             <% list.forEach(item => { %>
                 <li class="book-list">
-                        <%= item.title %> <span class="author-styling"> <br> by <%= item.author %> </span><a href="/users/<%=user._id%>/books/<%=item._id%>/add"><br>Add to list</a>
+                        <%= item.title %> <span class="author-styling"> <br> by <%= item.author %> </span>
                 </li>
                 <div class="space"></div>
             <% }); %>

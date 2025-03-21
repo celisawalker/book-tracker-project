@@ -13,8 +13,18 @@
   <%- include("./partials/_navbar.ejs") %>
   <% if (user) { %>
     <h1 class="app-header">Welcome back, <%= user.username %>!</h1>
+    <div class="space"></div>
+    <div class="logged-in-menu">
+      <ul>
+        <li><a href="/users/<%= user._id %>/books">Your Books</a></li>
+        <div class="space"></div>
+        <li><a href="/users/<%= user._id %>/books/tbr">Your TBR</a></li>
+      </ul>
+  </div>
+  <div class="space"></div>
+    <p class="community-link"><a href="users/users">Take a look at what other people are reading!</a></p>
   <% } else { %>
-    <h1 class="app-header">Welcome, Dear Reader</h1>
+    <h1 class="app-header">welcome, dear reader</h1>
     <div class="blurb-container">
     <div class="intro-blurb">
       <h2>Reach Your Goals</h2>
@@ -26,16 +36,12 @@
       <h2>Get Ideas For Your Next Read</h2>
       <p>Not sure what to read next? Take a look at our lists of popular books curated by readers like you. Add them to your TBR (to be read) so that you can reference it next time you're at the library or bookstore.
       </p>
-      <div class="login-container">
         <p>
-          <a href="/auth/sign-up">Sign up</a> or
-          <a href="/auth/sign-in">Sign in</a>.
+          <a class="login-in-blurb" href="/auth/sign-up">Sign up</a> or
+          <a class="login-in-blurb" href="/auth/sign-in">Sign in</a>.
         </p>
-      </div>
     </div>
   </div>
-
   <% } %>
-  <p><a href="/vip-lounge">See what everyone else is reading!</a></p>
 </body>
 </html>

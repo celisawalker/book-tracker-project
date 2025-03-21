@@ -13,7 +13,8 @@
     <%- include("../partials/_navbar.ejs") %>
     <div class="booklist-container">
       <div class="booklist-blurb">
-        <h1>What You've Been Reading</h1>
+        <h1>What <%=user.username %> has been reading</h1>
+        <div class="space"></div>
         <a href="/users/<%=user._id%>/books/new">Add New Book</a>
       </div>
         <ol>

@@ -31,12 +31,11 @@ nav{
     position: fixed;
     right: -100%;
     width: 300px;
-    height: 60%;
+    height: 70%;
     overflow: hidden;
     padding-top: 48px;
     transition: right .5s;
     background-color: rgb(203, 179, 126);
-    /* opacity: .8; */
 }
 
 nav a{
@@ -76,11 +75,15 @@ body{
     background-color: beige;
 }
 
-/* a{
-    text-decoration: none;
-    color: black;
-} */
+.logged-in-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.logged-in-subhead{
+    text-align: center;
+}
 
 a:hover{
     text-decoration: underline;
@@ -94,6 +97,7 @@ a:hover{
 .app-name{
     display: flex;
     width: 20%;
+    position: sticky;
     padding-top: 20px;
     align-items: center;
     justify-content: center;
@@ -118,9 +122,24 @@ form{
     margin: 0 auto;
 }
 
+label idx{
+    font-weight: 800;
+    color: white;
+    font-size: 20px;
+}
+
+label{
+    font-weight: 500;
+    color: black;
+    font-size: 20px;
+}
+
 input, select{
-    height: 20px;
-    border-radius: 5px;
+    height: 30px;
+    border-radius: 10px;
+}
+.login-in-blurb{
+    color: whitesmoke
 }
 
 textarea{
@@ -138,12 +157,17 @@ textarea{
 }
 
 .intro-blurb, .tbr-blurb{
-    width: 30%;
-    height: 275px;
+    width: 325px;
+    height: 325px;
     background-color: rgb(203, 179, 126);
     border-radius: 10px;
     padding: 15px;
     margin-left: 20px;
+    contain: content;
+}
+
+.community-link{
+    text-align: center;
 }
 
 ul{
@@ -203,18 +227,20 @@ ul{
     cursor: pointer;
 }
 
-/* .login-container{
-    background-color: rgb(246, 216, 177);
+.login-container{
+    background-color: rgb(153, 193, 153);
+    opacity: .8;
     border: 1px solid rgb(44, 43, 43);
     border-radius: 7px;
+    height: 300px;
+    width: 300px;
     display: flex;
     justify-content: center;
     contain: content;
     align-items: center;
-    width: 15%;
     margin: 0 auto;
     margin-bottom: 20px;
-} */
+}
 
 .author-styling{
     font-style: italic;
@@ -235,5 +261,10 @@ ul{
     .blurb-container{
         display: flex;
         flex-direction: column;
+    }
+
+    nav{
+        height: 30%;
+        width: 100%;
     }
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community View</title>
+</head>
+<body>
+    <%- include("../partials/_navbar.ejs") %>
+    <div class="booklist-container">
+        <h1 class="app-header">Need inspiration? Here's what other users have been reading!</h1>
+        <a href="/users/<%=user._id%>/books/new">Add a New Book</a>
+        <ul>
+            <% users.forEach(user => { %>
+                <a href="/users/<%= user._id %>/books">
+                    <li><%= user.username %></li>
+                </a>
+                <div class="space"></div>
+        <% }); %>
+        </ul>
+    </div>
+</body>
+</html>
